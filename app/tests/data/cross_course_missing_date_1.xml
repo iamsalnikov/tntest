@@ -1,0 +1,14 @@
+<ValCurs ID="world" DateRange1="02.03.2001" DateRange2="06.03.2001" name="Foreign Currency Market Dynamic">
+    <Record Date="02.03.2001" Id="world">
+        <Nominal>1</Nominal>
+        <Value>28,6200</Value>
+    </Record>
+    <Record Date="03.03.2001" Id="world">
+        <Nominal>1</Nominal>
+        <Value>28,6500</Value>
+    </Record>
+    <Record Date="06.03.2002" Id="world">
+        <Nominal>1</Nominal>
+        <Value>28,6600</Value>
+    </Record>
+</ValCurs>

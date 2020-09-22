@@ -1,0 +1,6 @@
+<ValCurs ID="hello" DateRange1="02.03.2001" DateRange2="02.03.2001" name="Foreign Currency Market Dynamic">
+    <Record Date="02.03.2001" Id="hello">
+        <Nominal>100</Nominal>
+        <Value>10</Value>
+    </Record>
+</ValCurs>

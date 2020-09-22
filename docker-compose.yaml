@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+    memcached:
+        image: memcached
+
+    fpm:
+        build:
+            context: ./fpm
+        volumes:
+            - ./app:/app
+        depends_on:
+            - memcached
+
+    nginx:
+        image: nginx
+        depends_on:
+            - fpm
+        volumes:
+            - ./nginx/conf.d:/etc/nginx/conf.d
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - "127.0.0.1:80:80"
+        links:
+            - fpm
