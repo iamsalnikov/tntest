@@ -411,7 +411,7 @@ class CourseRangeTest extends TestCase
                     )
                 ],
                 "date" => (new \DateTime())->setDate(2000, 1, 1),
-                "expException" => new EmptyCourseRangeDateException("Нет данных предыдущему торговому дню для 01.01.2000"),
+                "expException" => new EmptyCourseRangeDateException("Нет данных по предыдущему торговому дню для 01.01.2000"),
                 "expDifference" => null,
             ],
             [
@@ -428,7 +428,7 @@ class CourseRangeTest extends TestCase
                     )
                 ],
                 "date" => (new \DateTime())->setDate(2000, 1, 1),
-                "expException" => new EmptyCourseRangeDateException("Нет данных предыдущему торговому дню для 01.01.2000"),
+                "expException" => new EmptyCourseRangeDateException("Нет данных по предыдущему торговому дню для 01.01.2000"),
                 "expDifference" => null,
             ],
             [

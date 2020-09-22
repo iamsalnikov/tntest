@@ -168,7 +168,8 @@ class CourseRange
      */
     private function setupDaysValueDifferences(): void
     {
-        for ($i = 1; $i < count($this->courses); $i++) {
+        $coursesCount = count($this->courses);
+        for ($i = 1; $i < $coursesCount; $i++) {
             $currentCourse = $this->courses[$i];
             $prevCourse = $this->courses[$i - 1];
 
@@ -194,7 +195,7 @@ class CourseRange
         }
 
         throw new EmptyCourseRangeDateException(sprintf(
-            "Нет данных предыдущему торговому дню для %s",
+            "Нет данных по предыдущему торговому дню для %s",
             $date->format("d.m.Y")
         ));
     }

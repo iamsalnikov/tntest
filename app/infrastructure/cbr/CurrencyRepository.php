@@ -86,11 +86,11 @@ class CurrencyRepository implements CurrencyRepositoryInterface
         try {
             $response = $this->httpClient->sendRequest($request);
         } catch (ClientExceptionInterface $e) {
-            throw new CurrencyRepositoryException("Не удалось извлеч данные из cbr.ru", 0, $e);
+            throw new CurrencyRepositoryException("Не удалось извлечь данные из cbr.ru", 0, $e);
         }
 
         if ($response->getStatusCode() !== 200) {
-            throw new CurrencyRepositoryException("Не удалось извлеч данные из cbr.ru", 0);
+            throw new CurrencyRepositoryException("Не удалось извлечь данные из cbr.ru", 0);
         }
 
         $content = $response->getBody()->getContents();

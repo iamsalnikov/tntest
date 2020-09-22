@@ -25,7 +25,7 @@ class CurrencyRepositoryTest extends TestCase
         $client->method("sendRequest")->willThrowException($exception);
 
         $repo = new CurrencyRepository($client, "https://hello.ru");
-        $expException = new CurrencyRepositoryException("Не удалось извлеч данные из cbr.ru", 0, $exception);
+        $expException = new CurrencyRepositoryException("Не удалось извлечь данные из cbr.ru", 0, $exception);
         $this->expectExceptionObject($expException);
         $currencies = $repo->getCurrencies();
         $this->assertEmpty($currencies);
@@ -41,7 +41,7 @@ class CurrencyRepositoryTest extends TestCase
         $client->method("sendRequest")->willThrowException($exception);
 
         $repo = new CurrencyRepository($client, "https://hello.ru");
-        $expException = new CurrencyRepositoryException("Не удалось извлеч данные из cbr.ru", 0, $exception);
+        $expException = new CurrencyRepositoryException("Не удалось извлечь данные из cbr.ru", 0, $exception);
         $this->expectExceptionObject($expException);
         $repo->getCurrencyByID("hello");
     }
@@ -58,7 +58,7 @@ class CurrencyRepositoryTest extends TestCase
         $client->method("sendRequest")->willReturn($response);
 
         $repo = new CurrencyRepository($client, "https://hello.ru");
-        $expException = new CurrencyRepositoryException("Не удалось извлеч данные из cbr.ru", 0);
+        $expException = new CurrencyRepositoryException("Не удалось извлечь данные из cbr.ru", 0);
         $this->expectExceptionObject($expException);
         $currencies = $repo->getCurrencies();
         $this->assertEmpty($currencies);
@@ -76,7 +76,7 @@ class CurrencyRepositoryTest extends TestCase
         $client->method("sendRequest")->willReturn($response);
 
         $repo = new CurrencyRepository($client, "https://hello.ru");
-        $expException = new CurrencyRepositoryException("Не удалось извлеч данные из cbr.ru", 0);
+        $expException = new CurrencyRepositoryException("Не удалось извлечь данные из cbr.ru", 0);
         $this->expectExceptionObject($expException);
         $repo->getCurrencyByID("hello");
     }
