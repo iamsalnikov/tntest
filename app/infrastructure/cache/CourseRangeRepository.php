@@ -74,7 +74,8 @@ class CourseRangeRepository implements CourseRangeRepositoryInterface, CrossCour
         DateTimeInterface $to
     ): CourseRange {
         $key = sprintf(
-            "cross-course-%s-%s-%s",
+            "cross-course-%s-%s-%s-%s",
+            $baseCurrency->getId(),
             $currency->getId(),
             $from->format("Y.m.d"),
             $to->format("Y.m.d")

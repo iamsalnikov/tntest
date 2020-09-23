@@ -3,6 +3,7 @@
 namespace tests\unit\infrastructure\cache;
 
 use DateTime;
+use entities\Course;
 use entities\CourseRange;
 use entities\Currency;
 use Exception;
@@ -300,6 +301,36 @@ class CourseRangeRepositoryTest extends TestCase
             $this->createMock(Currency::class),
             $this->createMock(DateTime::class),
             $this->createMock(DateTime::class)
+        );
+    }
+
+    public function testCrossCourseCacheKey()
+    {
+        $cache = $this->createMock(CacheInterface::class);
+        $cache->method("has")->willReturn(false);
+        $cache->expects($this->once())->method("set")->with(
+            "cross-course-base-hello-twitter-gmail",
+            $this->anything(),
+            $this->anything()
+        );
+
+        $courseRangeRepo = $this->createMock(CourseRangeRepositoryInterface::class);
+        $crossCourseRangeRepo = $this->createMock(CrossCourseRangeRepositoryInterface::class);
+
+        $repo = new CourseRangeRepository($courseRangeRepo, $crossCourseRangeRepo, $cache, 0);
+        $repo->getCrossCourseRange(
+            $this->createConfiguredMock(Currency::class, [
+                "getId" => "base"
+            ]),
+            $this->createConfiguredMock(Currency::class, [
+                "getId" => "hello"
+            ]),
+            $this->createConfiguredMock(DateTime::class, [
+                "format" => "twitter"
+            ]),
+            $this->createConfiguredMock(DateTime::class, [
+                "format" => "gmail"
+            ]),
         );
     }
 }
